@@ -14,10 +14,9 @@ public class SocketServer {
 		try {
 			ServerSocket serverSocket=new ServerSocket(8800);
 			while (true) {
-				
 				Socket socket = serverSocket.accept();
 				num++;
-				SocketThread thread = new SocketThread(socket);
+				SocketThread thread = new SocketThread(socket);//每次有新的连接就新开一个线程去通信
 				thread.start();
 				System.out.println("当前登录人数："+num);
 			}

@@ -16,6 +16,7 @@ public class SocketServer {
 			ServerSocket serverSocket=new ServerSocket(8800);
 			Socket socket = serverSocket.accept();
 			InputStream inputStream = socket.getInputStream();
+			//这里使用ObjectInputStream来序列化传递对象实例，注意对象类需要实现可序列化
 			ObjectInputStream objectInputStream = new ObjectInputStream(inputStream);
 			User user =(User) objectInputStream.readObject();
 			if((user)!=null) {
